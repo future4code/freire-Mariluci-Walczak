@@ -12,12 +12,12 @@
 
 // Exercícios de escrita de código
 // 1 -
-const nome = prompt("Digite seu nome :")
+/* const nome = prompt("Digite seu nome :")
 const email = prompt("Digite seu email :")
-console.log(`O e-mail ${email} foi cadastrado com sucesso. Seja bem-vinda(o), ${nome}`)
+console.log(`O e-mail ${email} foi cadastrado com sucesso. Seja bem-vinda(o), ${nome}`) */
 
 // 2 -a -
-const comida = ['Pequi', "Galinhada", `Pizza`, "Strogonoff", "Empadão"]
+/* const comida = ['Pequi', "Galinhada", `Pizza`, "Strogonoff", "Empadão"]
 console.log(comida)
 
 // 2 - b
@@ -53,8 +53,12 @@ console.log("Tarefa que já realizei :",tarefaRealizada)
 listaDeTarefas.splice(tarefaRealizada,1)
 
 console.log("Minhas tarefas :", listaDeTarefas)
+ */
 
 
+
+
+}
 
 
 

@@ -18,8 +18,8 @@
 
 //Exercícios de escrita de código
 // Exercício nr. 01 - a)
-
-function minhaInformacao (){
+//
+ function minhaInformacao (){
        const nome = "Karol"
        const idade = 26
        const cidade = "Sáo Paulo"
@@ -27,11 +27,11 @@ function minhaInformacao (){
        return `Eu sou ${nome}, tenho ${idade} anos, moro em ${cidade} e sou ${profissao}` 
    }
    const imprimi = minhaInformacao()
-   console.log(imprimi)
+   console.log(imprimi) 
 
    // Exercício nr. 01 - b)
 
-   function informacaoPessoa(nome,idade,cidade,profissao){
+    function informacaoPessoa(nome,idade,cidade,profissao){
     const nomePessoa = "Mariluci"
     const idadePessoa = 55
     const cidadePessoa = "Goiânia"
@@ -46,31 +46,26 @@ function minhaInformacao (){
        const somaNumeros = numeroUm+numeroDois
        return somaNumeros
    }
-   console.log(soma(20,42))
+   console.log(soma(20,42)) 
    
 
 //Exercício nr. 02 - b)
 
-function doisNumeros(num1,num2){
+ function doisNumeros(num1,num2){
    const resultado = num1 >= num2
    return resultado
 }
-console.log(doisNumeros(15,85))
+console.log(doisNumeros(15,85)) 
 
 //Exercício nr. 02 -  c)
-//c) Escreva uma função que receba um número e devolva 
-//um booleano indicando se ele é par ou não
 
-function recebeNumero(recebeNumUm){
+ function recebeNumero(recebeNumUm){
     const devolve = recebeNumUm % 2 == 0
         return devolve
 }
-console.log(recebeNumero(10))
+console.log(recebeNumero(10)) 
 
 //Exercício nr. 02 -  d)
-//d) Faça uma função que recebe uma mensagem (string) 
-//como parâmetro e imprima o tamanho dessa mensagem,
-// juntamente com uma versão dela em letras maiúsculas.
 
 function mensagem(frase){
     const tamanho = frase.length
@@ -82,7 +77,7 @@ console.log(mensagem("Tenho que prestar mais atenção"))
 
 //Exercício nr. 03
 
-function somarNumeros(primeiroNumero,segundoNumero){
+  function somarNumeros(primeiroNumero,segundoNumero){
     primeiroNumero =+prompt("Digite o primeiro número : ")
     segundoNumero =+prompt("Digite o segundo número : ")
 
@@ -103,7 +98,5 @@ function somarNumeros(primeiroNumero,segundoNumero){
     return primeiroNumero,segundoNumero
 
 }
-somarNumeros()
-
-
+somarNumeros() 
 
