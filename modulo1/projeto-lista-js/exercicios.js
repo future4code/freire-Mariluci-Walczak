@@ -39,26 +39,21 @@ function imprimeIdade() {
 }
 
 // EXERCÍCIO 03
-function calculaIMC(peso, altura) {
+function calculaIMC(peso,altura) {
   // implemente sua lógica aqui
-    peso =+prompt("Digite o seu peso : ")
-    altura =+prompt("Digite sua altura : ")
-
-    const retorna = peso / (altura*altura)
-
-    console.log(retorna)
-     return peso,altura
+       const calculaIMC = peso / (altura*altura)
+     return calculaIMC
 }
 
 // EXERCÍCIO 04
 function imprimeInformacoesUsuario() {
   // implemente sua lógica aqui
   // "Meu nome é NOME, tenho IDADE anos, e o meu email é EMAIL."
-  nome = prompt("Digite o seu nome : ")
+    nome = prompt("Digite o seu nome : ")
     idade = prompt("Digite sua idade : ")
     email = prompt("Digite o seu email :")
 
-    console.log(`Meu nome é ${nome}, tenho ${idade} anos, e o meu email é ${email}`) 
+    console.log(`Meu nome é ${nome}, tenho ${idade} anos, e o meu email é ${email}.`) 
     return nome,idade,email
 
 }
@@ -84,23 +79,20 @@ function imprimeTresCoresFavoritas() {
 // EXERCÍCIO 06
 function retornaStringEmMaiuscula(string) {
   // implemente sua lógica aqui
-  palavra = prompt("Digite uma palavra : ")
-    const palavraMaiuscula = palavra.toUpperCase()
+  
+    const retornaStringEmMaiuscula = string.toUpperCase()
 
-    console.log(palavraMaiuscula)
-    return palavra
+    //console.log(palavraMaiuscula)
+    return retornaStringEmMaiuscula
 }
 
 // EXERCÍCIO 07
 function calculaIngressosEspetaculo(custo, valorIngresso) {
   // implemente sua lógica aqui
-     custo =+ prompt("Informe o custo do espetáculo :")
-     ingresso =+ prompt("Qual o valor do ingresso :")
+     
+     const calculaIngressosEspetaculo = custo / valorIngresso
 
-     const qtdIngresso = custo / ingresso
-
-     console.log(qtdIngresso)
-     return custo,ingresso
+     return calculaIngressosEspetaculo
 
 }
 
@@ -122,19 +114,27 @@ function retornaPrimeiroElemento(array) {
 // EXERCÍCIO 10
 function retornaUltimoElemento(array) {
   // implemente sua lógica aqui
-
+  const retorna = array.pop()
+  return retorna
 }
 
 // EXERCÍCIO 11
 function trocaPrimeiroEUltimo(array) {
   // implemente sua lógica aqui
-
+        
+     const arrayPrimeiro = array.length
+     const arrayGuarda = array[0]
+     array[0] = array[arrayPrimeiro -1]
+     array[arrayPrimeiro -1] = arrayGuarda
+     
+     return array  
 }
 
 // EXERCÍCIO 12
 function checaIgualdadeDesconsiderandoCase(string1, string2) {
   // implemente sua lógica aqui
-
+  const resultado = (string1.toUpperCase() === string2.toUpperCase())
+  return resultado
 }
 
 // EXERCÍCIO 13
@@ -146,7 +146,7 @@ function checaRenovacaoRG() {
 // EXERCÍCIO 14
 function checaAnoBissexto(ano) {
   // implemente sua lógica aqui
-
+  //return (ano % 400) === 0  || ((ano % 4 === 0 ) && (ano % 100 != 0) 
 }
 
 // EXERCÍCIO 15
