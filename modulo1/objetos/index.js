@@ -16,8 +16,8 @@
 
 //Exercícios de escrita de código
 
-// Exercício nr.01 - a)
- /* const pessoa = {
+//Exercício nr.01 - a)
+  const pessoa = {
     nome:"Amanda",
     apelidos:["Amandinha","Mandinha","Mandi"]
 }
