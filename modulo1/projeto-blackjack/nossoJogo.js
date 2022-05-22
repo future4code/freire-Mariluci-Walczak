@@ -14,6 +14,7 @@
 alert("Boas vindas ao jogo de BlackJack !")
 
 let retorna =  confirm("Quer iniciar uma nova rodada ?")
+
 // A rodada inicia sortear duas cartas ( o método já está pronto, é só chamar)
 
 if(retorna) {
