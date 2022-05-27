@@ -19,6 +19,7 @@ h2 {
 input {
     height: 20px;
     width: 500px;
+
 }
 
 button:focus {
@@ -27,6 +28,8 @@ button:focus {
 
 img {
     width: 100px;
+    height: 100px;
+    
 }
 
 div>p:first-child {
