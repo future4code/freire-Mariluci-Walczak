@@ -1,0 +1,24 @@
+header{
+    width: 100%;
+    background-color:#2405ed;
+    display: flex;
+    justify-content: space-around;
+    color: orange;
+}
+
+.nome-loja{
+    background-color: #2405ed;
+    margin:5px;
+}
+
+.menu{
+    margin: 100px;
+}
+
+.menu-estoque{
+    margin: 50px;
+}
+
+footer{
+    margin: 300px 400px 0px 400px;
+}
