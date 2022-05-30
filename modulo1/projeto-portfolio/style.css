@@ -183,7 +183,7 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #60E1E0;
+    background-color: #e160dd;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -196,7 +196,7 @@ a:hover {
 .card-text {
     width: 40%;
     letter-spacing: 1px;
-    color: rgb(109 109 109);
+    color: rgba(13, 1, 1, 0.921);
 }
 
 .card-wrapper {
@@ -280,12 +280,6 @@ a:hover {
     color: rgb(165, 42, 44);
 } 
 
-#div-contato p {
-    text-align: center;
-    font-size: 30px;
-    color: rgb(207, 10, 10);
-}
-
 #div-contato {
     text-align: center;
     font-size: 20px;
@@ -303,7 +297,32 @@ a:hover {
     text-align: center;
     font-size: 30px;
     color: rgb(207, 10, 10);
+    width: 100%;
+    max-width: 500px;
 }
+
+.form {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+.content {
+    display: flex;
+    justify-content: center;
+}
+
+.field {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+textarea {
+    height: 150px;
+}
+
 
 /* <section class="content">
         <div class="contato">
@@ -314,11 +333,7 @@ a:hover {
                 <textarea class="field" name="msg" placeholder="Mensagem" ></textarea>
                 <input class="field" type="submit" value="Enviar"> */
 
-.content .div contato h3 .form {
-    display: flex;
-    flex-direction: column;
-   
-} 
+
 
 
 
