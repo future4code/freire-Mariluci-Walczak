@@ -5,15 +5,12 @@ body {
     font-family: 'serif';
     color: black;
 }
+/* HEADER*/
 
 .header-container{
     height: 100vh;
     width: 100vw;
-    background-color: rgb(195, 243, 245);
-    background-image: url('./img/background.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+    background-color: rgb(203, 250, 177);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,26 +31,8 @@ h2{
     letter-spacing: 4px;  
 }
 
-.social-media{
-    margin-top: 30px;
-    display: flex;
-
-}
-
-.social-media a {
-    text-decoration: none;
-    color: black;
-    padding: 1rem 4rem;
-    border: 1px solid #241e2a;
-    min-width: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: .5s ease-in-out;
-}
-
 a:hover {
-    background-color: blue;
+    background-color: rgb(248, 200, 236);
 }
 
 .checkbox-container {
@@ -72,7 +51,7 @@ a:hover {
     justify-content: center;
     cursor: pointer;
     z-index: 9999;
-    transition: 400ms ease-in-out 0s ;
+    transition: 300ms ease-in-out 0s ;
 }
 
 .checkbox .trace {
@@ -85,17 +64,17 @@ a:hover {
 }
 
 .checkbox .trace:nth-child(1){
-    top: 35px;
+    top: 65px;
     transform: rotate(0);
 }
 
 .checkbox .trace:nth-child(2){
-    top: 55px;
+    top: 85px;
     transform: rotate(0);
 }
 
 .checkbox .trace:nth-child(3){
-    top: 75px;
+    top: 105px;
     transform: rotate(0);
 }
 
@@ -111,7 +90,7 @@ a:hover {
     height: 4px;
     width: 10px;
     border-radius: 50%;
-    box-shadow: 0px 0px 0px 0px #ffffff;
+    box-shadow: 0px 0px 0px 0px rgb(203, 250, 177);
     z-index: -1;
     transition: 400ms ease-in-out 0s;
 }
@@ -128,7 +107,8 @@ a:hover {
     z-index: 2;
     opacity: 0;
     visibility: hidden;
-    transition: 00ms ease-in-out 0s;
+    transition: 0ms ease-in-out 0s;
+    background-color: rgb(203, 250, 177);
 }
 
 .menu-itens ul {
@@ -137,12 +117,14 @@ a:hover {
 
 .menu-itens ul li a {
     margin: 10 px 0;
-    color: #1E1E2A;
+    color: black;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 4px;
-    font-size: 40px;
+    font-size: 20px;
 }
+
+/* ANIMAÇÃO DO MENU */
 
 #toggle:checked ~ .checkbox .trace:nth-child(1) {
     transform: rotate(45deg);
@@ -162,11 +144,11 @@ a:hover {
 }
 
 #toggle:checked ~ .checkbox {
-    background-color: #ffffff;
+    background-color: rgb(203, 250, 177);
 }
 
 #toggle:checked ~ .menu {
-    box-shadow: 0px 0px 0px 100vmax #ffffff;
+    box-shadow: 0px 0px 0px 100vmax rgb(203, 250, 177);
     z-index: 1;
 }
 
@@ -174,6 +156,8 @@ a:hover {
     visibility: visible;
     opacity: 1;
 }
+
+  /* CARDS */
 
 .container {
     height: auto;
@@ -192,12 +176,140 @@ a:hover {
 }
 
 .card {
-    
+    width:  300px;
+    height: 300px;
+    border-radius: 100%;
+    margin: 3rem 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #60E1E0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: grayscale(0.5);
+    color: #1E1E2A;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
 }
 
+.card-text {
+    width: 40%;
+    letter-spacing: 1px;
+    color: rgb(109 109 109);
+}
 
+.card-wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
 
+.card-wrapper::before {
+    content: '';
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    display: block;
+    border: 1px solid #ffffff;
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+}
 
+.card-wrapper p{
+    font-size: 0;
+    visibility: visible;
+    opacity: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.5s ease-in-out;
+}
+
+.card:hover {
+    filter: unset
+}
+
+.card:hover >.card-wrapper::before {
+    height: 200px;
+    width: 200px;
+    opacity: 1;
+}
+
+.card:hover> .card-wrapper p {
+    opacity: 1;
+    visibility: visible;
+    font-size: 14px;
+}
+
+/* página do sobre mim  */
+
+.sobre-mim {
+    background-color: rgb(203, 250, 177);
+    margin: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    color: black;
+    font-size: 50px;
+}
+
+.menu-sobre {
+    margin: 50px;
+    font-size: 20px;
+    color: black;  
+}
+
+#div-sobre-mim {
+    text-align: center;
+    font-size: 30px;
+    color: rgb(207, 10, 10);
+}
+#sobre-mim-inst {
+    text-align: center;
+    font-size: 25px;
+    color: rgb(21, 21, 232);
+} 
+
+#lista-inst {
+    text-align: center;
+    font-size: 20px;
+    color: rgb(165, 42, 44);
+} 
+
+#div-contato p {
+    text-align: center;
+    font-size: 30px;
+    color: rgb(207, 10, 10);
+}
+
+#div-contato {
+    text-align: center;
+    font-size: 20px;
+    color: blue;
+}
+
+#social-media {
+    text-align: center;
+    font-size: 20px;
+    color: rgb(165, 42, 44);
+} 
+
+.form-contato {
+    background-color: blueviolet;
+    padding: 5px;
+    font: 15px arial;
+    border-top: 10px solid;
+    border-right: 10px solid;
+    border-bottom: 10px solid;
+}
+.form-contato input.botao {
+    background-color: blue;
+
+}
 
 
 
