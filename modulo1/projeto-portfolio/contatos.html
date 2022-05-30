@@ -27,37 +27,19 @@
         </div>
     </nav>
 
-    <!-- Quem sou eu-->
+    <section class="content">
+        <div class="contato">
+            <h3>Formulário de Contato</h3>
+            <form class="form" method="post" action="./email.html">
+                <input class="field" name="name" placeholder="Nome">
+                <input class="field" name="email" placeholder="E-mail">
+                <textarea class="field" name="msg" placeholder="Mensagem" ></textarea>
+                <input class="field" type="submit" value="Enviar">
+            </form>
+        </div>
+    </section>
 
-    <div id="div-contato">
-        <p> CONTATO</p>
-       <!--  <form action="#"> -->
-        <form name= "form-contato" action=" #">
-            <table>
-                <tr>
-                    <td><label for="nome">Nome : </label></td>
-                    <td><input type="text" id="nome" name="nome" size="33" maxlength="1000"></td>
-                </tr>
-
-                <tr>
-                    <td><label for="email">Email : </label></td>
-                    <td><input type="text" id="email" name="email" size="33" maxlength="1000"></td>
-                    <br>
-                </tr>
-
-                <tr>
-                    <td><label for="msg"> Mensagem: </label></td>
-                    <td> <textarea name="Mensagem" id="" cols="30" rows="10"></textarea> </td>
-                   <!--  <td><input type="text" id="msg" name="msg"></td> -->
-                    <br>
-                </tr>
-                <tr>
-                    <td><button type="button">Enviar</button></td>
-                </tr>
-            </table>     
-        </form>
-       
-    </div>    
+  
       
 </body>
 </html>
