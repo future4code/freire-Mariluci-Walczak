@@ -1,0 +1,347 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'serif';
+    color: black;
+}
+/* HEADER*/
+
+.header-container{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(203, 250, 177);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+    padding: 0 112px;
+    position: relative; 
+}
+
+h1{
+    font-size: 50px;
+    text-transform:uppercase ;
+    letter-spacing: 4px;
+}
+
+h2{
+    text-transform:unset ;
+    letter-spacing: 4px;  
+}
+
+a:hover {
+    background-color: rgb(248, 200, 236);
+}
+
+.checkbox-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkbox {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 9999;
+    transition: 300ms ease-in-out 0s ;
+}
+
+.checkbox .trace {
+    width: 50px;
+    height: 2px;
+    background-color: #1E1E2A;
+    position: absolute;
+    border-radius: 4px;
+    transition: 0.5s ease-in-out;
+}
+
+.checkbox .trace:nth-child(1){
+    top: 65px;
+    transform: rotate(0);
+}
+
+.checkbox .trace:nth-child(2){
+    top: 85px;
+    transform: rotate(0);
+}
+
+.checkbox .trace:nth-child(3){
+    top: 105px;
+    transform: rotate(0);
+}
+
+#toggle {
+    display: none;
+}
+
+.menu {
+    position: absolute;
+    top: 28px;
+    right: 30px;
+    background-color: transparent;
+    height: 4px;
+    width: 10px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 0px rgb(203, 250, 177);
+    z-index: -1;
+    transition: 400ms ease-in-out 0s;
+}
+
+.menu-itens {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex ;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0ms ease-in-out 0s;
+    background-color: rgb(203, 250, 177);
+}
+
+.menu-itens ul {
+    list-style-type: none;
+}
+
+.menu-itens ul li a {
+    margin: 10 px 0;
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 20px;
+}
+
+/* ANIMAÇÃO DO MENU */
+
+#toggle:checked ~ .checkbox .trace:nth-child(1) {
+    transform: rotate(45deg);
+    top: 47px;
+}
+
+#toggle:checked ~ .checkbox .trace:nth-child(2) {
+    transform: translate(-100px);
+    width: 30px;
+    visibility: hidden;
+    opacity: 0;
+}
+
+#toggle:checked ~ .checkbox .trace:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 48px;
+}
+
+#toggle:checked ~ .checkbox {
+    background-color: rgb(203, 250, 177);
+}
+
+#toggle:checked ~ .menu {
+    box-shadow: 0px 0px 0px 100vmax rgb(203, 250, 177);
+    z-index: 1;
+}
+
+#toggle:checked ~ .menu-itens {
+    visibility: visible;
+    opacity: 1;
+}
+
+  /* CARDS */
+
+.container {
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 3rem 0;
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 90%;
+}
+
+.card {
+    width:  300px;
+    height: 300px;
+    border-radius: 100%;
+    margin: 3rem 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e160dd;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: grayscale(0.5);
+    color: #1E1E2A;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+
+.card-text {
+    width: 40%;
+    letter-spacing: 1px;
+    color: rgba(13, 1, 1, 0.921);
+}
+
+.card-wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.card-wrapper::before {
+    content: '';
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    display: block;
+    border: 1px solid #ffffff;
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+}
+
+.card-wrapper p{
+    font-size: 0;
+    visibility: visible;
+    opacity: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.5s ease-in-out;
+}
+
+.card:hover {
+    filter: unset
+}
+
+.card:hover >.card-wrapper::before {
+    height: 200px;
+    width: 200px;
+    opacity: 1;
+}
+
+.card:hover> .card-wrapper p {
+    opacity: 1;
+    visibility: visible;
+    font-size: 14px;
+}
+
+/* página do sobre mim  */
+
+.sobre-mim {
+    background-color: rgb(203, 250, 177);
+    margin: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    color: black;
+    font-size: 50px;
+}
+
+.menu-sobre {
+    margin: 50px;
+    font-size: 20px;
+    color: black;  
+}
+
+#div-sobre-mim {
+    text-align: center;
+    font-size: 30px;
+    color: rgb(207, 10, 10);
+}
+#sobre-mim-inst {
+    text-align: center;
+    font-size: 25px;
+    color: rgb(21, 21, 232);
+} 
+
+#lista-inst {
+    text-align: center;
+    font-size: 20px;
+    color: rgb(165, 42, 44);
+} 
+
+#div-contato {
+    text-align: center;
+    font-size: 20px;
+    color: blue;
+}
+
+#social-media a {
+    text-align: center;
+    font-size: 10px;
+    color: rgb(165, 42, 44);
+} 
+
+
+.contato {
+    text-align: center;
+    font-size: 30px;
+    color: rgb(207, 10, 10);
+    width: 100%;
+    max-width: 500px;
+}
+
+.form {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+.content {
+    display: flex;
+    justify-content: center;
+}
+
+.field {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+textarea {
+    height: 150px;
+}
+
+
+/* <section class="content">
+        <div class="contato">
+            <h3>Formulário de Contato</h3>
+            <form class="form" method="post" action="./email.html">
+                <input class="field" name="name" placeholder="Nome">
+                <input class="field" name="email" placeholder="E-mail">
+                <textarea class="field" name="msg" placeholder="Mensagem" ></textarea>
+                <input class="field" type="submit" value="Enviar"> */
+
+
+
+
+
+
+
+
+
+
+
+
+
