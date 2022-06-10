@@ -2,117 +2,114 @@ import React from 'react';
 import styled from 'styled-components'
 import Post from './components/Post/Post';
 
-const MainContainer  = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-`
-
-/* class App extends React.Component {
-  render() {
-    return (
-      <MainContainer>
-       <Post
-         nomeUsuario={'paulinha'}
-         fotoUsuario={'https://picsum.photos/50/50'}
-         fotoPost={'https://picsum.photos/200/150'}
-        />
-       <Post
-         nomeUsuario={'mariluci'}
-         fotoUsuario={'https://picsum.photos/50/51'}
-         fotoPost={'https://picsum.photos/200/151'}
-       />
-        <Post
-         nomeUsuario={'karoline'}
-         fotoUsuario={'https://picsum.photos/50/52'}
-         fotoPost={'https://picsum.photos/200/152'}
-       />
-    </MainContainer>
-    );
-  }
-} */
-
-class Lista extends React.Component{
-  state = {
-    posts: [
+    const arrayPosts = [
+      {
+        nomeUsuario:"Paulinha",
+        fotoUsuario:"https://picsum.photos/50/50",
+        fotoPost:"https://picsum.photos/200/150"
+      },
       {
         nomeUsuario:"Mariluci",
         fotoUsuario:"https://picsum.photos/50/51",
-        fotoPostUsuario:"https://picsum.photos/200/151"
+        fotoPost:"https://picsum.photos/200/151"
       },
       {
         nomeUsuario:"Karoline",
         fotoUsuario:"https://picsum.photos/50/52",
-        fotoPostUsuario:"https://picsum.photos/200/152"
+        fotoPost:"https://picsum.photos/200/152"
       },
-    ],
-    valorInputNomeUsuario: "",
-    valorInputFotoUsuario: "",
-    valorInputFotoPostUsuario: ""
-  };
+    ];
 
-  adicionaUsuario = ()=>{
-    const novoUsuario = {
-      nomeUsuario: this.state.valorInputNomeUsuario,
-      fotoUsuario: this.state.valorInputFotoUsuario,
-      fotoPostUsuario: this.state.valorInputFotoPostUsuario
+    const AppContainer = styled.div`
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      
+    `;
+
+      const FormContainer = styled.div`
+        display:flex;
+        justify-content: space-between;
+        flex-direction: column;
+        height: 180px;
+        width: 240px;
+        border: 1px solid gray;
+        margin: 5px;
+        padding: 30px;
+      `;
+
+    class App extends React.Component {
+      state = {
+        posts: arrayPosts,
+        nome: "",
+        fotoNome: "",
+        fotoPost: ""
+      }
+
+      changeNome = (event) => {
+        this.setState({ nome: event.target.value });
+      };
+      
+      changeFotoNome = (event) => {
+        this.setState({fotoNome: event.target.value});
+      };
+
+      changeFotoPost = (event) => {
+        this.setState({fotoPost: event.target.value});
+      };
+   
+  adicionaPost = () => {
+    const novoPost = {
+      nomeUsuario: this.state.nome,
+      fotoUsuario: this.state.fotoNome,
+      fotoPost: this.state.fotoPost
     };
 
-    const novoPosts = [...this.state.posts, novoPosts];
-    this.setState({ posts: novoPosts});
+    this.setState({
+      posts: [...this.state.posts, novoPost],
+      nome: "",
+      fotoNome: "",
+      fotoPost: ""
+    });
   };
 
-  onChangeInputNomeUsuario = (event) => {
-    this.setState({valorInputNomeUsuario: event.target.value });
-  };
-
-  onChangeInputFotoUsuario = (event) => {
-    this.setState({valorInputFotoUsuario: event.target.value });
-  };
-
-  onChangeInputFotoPostUsuario = (event) => {
-    this.setState({valorInputFotoPostUsuario: event.target.value });
-  };
-
-  render(){
-    const listaDeComponentes = this.state.posts.map((posts) => {
+  render() {
+    const listaDeComponentes = this.state.posts.map((p) => {
       return(
-        <p>
-          {posts.nomeUsuario} - {posts.fotoUsuario} - {posts.fotoPost}
-        </p>
+        <Post
+          nomeUsuario={p.nomeUsuario}
+          fotoUsuario={p.fotoUsuario}
+          fotoPost={p.fotoPost}
+        />
       );
     });
+
     return (
-      <div>
-        <h1>Minha Lista de Posts</h1>
-        {/* <div>{listaDeComponentes}</div> */}
-
-        <div>
+      <AppContainer>
+        <FormContainer>
           <input
-          value={this.state.valorInputNomeUsuario}
-          onChange={this.onChangeInputNomeUsuario}
-          placeholder={"Nome"}
+            placeholder={"Nome do Usuário"}
+            value={this.state.nome}
+            onChange={this.changeNome}
           />
-
           <input
-          value={this.state.valorInputFotoUsuario}
-          onChange={this.onChangeInputFotoUsuario}
-          placeholder={"Foto"}
+            placeholder={"Foto do Usuário"}
+            value={this.state.fotoNome}
+            onChange={this.changeFotoNome}
           />
-
           <input
-          value={this.state.valorInputFotoPostUsuario}
-          onChange={this.onChangeInputFotoPostUsuario}
-          placeholder={"Imagem"}
-          />
+            placeholder={"Foto do Post"}
+            value={this.state.fotoPost}
+            onChange={this.changeFotoPost}
+          />          
 
-          <button onClick={this.adicionaUsuario}>Adicionar</button>
-        </div>
-      <div>{listaDeComponentes}</div>
-      </div>
+          <button onClick={this.adicionaPost}>Novo Post</button>
+        </FormContainer>
+        {listaDeComponentes}
+        </AppContainer>
     );
   }
 }
 
-export default Lista;
+export default App;
