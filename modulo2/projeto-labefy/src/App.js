@@ -4,8 +4,12 @@ import TelaListaPlaylists from './components/TelaListaPlaylists';
 import TelaAdicionaMusica from './components/TelaAdicionaMusica';
 import TelaMostraListaMusicas from './components/TelaMostraListaMusicas'
 /* import { render } from '@testing-library/react'; */
+import styled from 'styled-components';
 
-
+const AppContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 export default  class App extends React.Component {
   state = {
     telaAtual: "cadastro"
