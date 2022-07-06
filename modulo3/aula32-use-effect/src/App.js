@@ -1,54 +1,65 @@
-import React from "react";
-import "./styles.css";
 import axios from "axios";
-import PokeCard from "./components/PokeCard/PokeCard";
-import {useState} from "react";
-import {useEffect} from "react"
+import PokeCard from "./components/PokeCard";
+import React, { useState, useEffect } from "react";
+import {Container} from "./styles"
 
-export default function App {
-  const [pokeList, setPokeList] = useState ([])
-  const [pokeName, setPokeName] = useState ("")
-}
-
-  // método que roda após a montagem do componente
-  componentDidMount = () => {
-    // função axios que está batendo na API e buscando 151 pokemons
+function App() {
+  const [pokeList, setPokeList] = useState([])
+  const [pokeName, setPokeName] = useState("")
+  
+  const pegaLista = () => {
     axios
       .get("https://pokeapi.co/api/v2/pokemon/?limit=151")
-      .then(response => {
-        // função que está setando no estado os 151 pokemons
-        this.setState({ pokeList: response.data.results });
+      .then((res) => {
+        setPokeList(res.data.results)
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   };
 
-  changePokeName = event => {
-    this.setState({ pokeName: event.target.value });
+  useEffect(() => {
+    pegaLista()
+  }, [])
+  const changePokeName = (event) => {
+    setPokeName(event.target.value)
   };
 
-  render() {
+  const pokeOptions = pokeList.map(pokemon => {
     return (
-      <div className="App">
-        {/* evento onChange chama função toda vez que o usuário 
-        escolhe um novo pokemon no dropdown */}
-        <select onChange={this.changePokeName}>
-          <option value={""}>Nenhum</option>
-          {/* renderizando a lista de pokemons como opções do select */}
-          {this.state.pokeList.map(pokemon => {
-            return (
-              <option key={pokemon.name} value={pokemon.name}>
-                {pokemon.name}
-              </option>
-            );
-          })}
-        </select>
-        {/* expressão booleana que renderiza o componente PokeCard,
-        caso o valor de pokeName, no estado, seja true */}
-        {this.state.pokeName && <PokeCard pokemon={this.state.pokeName} />}
-      </div>
+      <option key={pokemon.name} value={pokemon.name}>
+        {pokemon.name}
+      </option>
     );
-  }
+  });
+  const pokemon = pokeName && <PokeCard pokeName={pokeName} />;
+  return (
+    <Container>
+      <header>
+        <h1>Exibir Pokémon</h1>
+      </header>
+      <hr />
+      <nav>
+        <label htmlFor={"select-pokemon"}>Selecione um Pokemon: </label>
+        <select id={"select-pokemon"} onChange={changePokeName}>
+          <option value={""}>Nenhum</option>
+          {pokeOptions}
+        </select>
+      </nav>
+      <main>
+        {pokemon}
+      </main>
+    </Container>
+  );
 }
+export default App;
+
+
+
+
+
+
+
+
+
 
