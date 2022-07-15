@@ -1,10 +1,10 @@
-import { HomePage } from "../pages/HomePage";
-import { ListTripsPage } from "../pages/ListTripsPage";
-import { LoginPage } from "../pages/LoginPage";
-import { ApplicationFormPage} from "../pages/ApplicationFormPage";
+import {HomePage} from "../pages/Home/HomePage"
+import { ListTripsPage } from "../pages/ListTrips/ListTripsPage";
+import { LoginPage } from "../pages/Login/LoginPage";
+import { ApplicationFormPage} from "../pages/Application/ApplicationFormPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { AdminHomePage } from "../pages/AdminHomePage";
-import { CreateTripPage} from "../pages/CreateTripPage";
+import { AdminHomePage } from "../pages/AdminHome/AdminHomePage";
+import { CreateTripPage} from "../pages/Create/CreateTripPage";
 
 export const Router = () => {
   return (

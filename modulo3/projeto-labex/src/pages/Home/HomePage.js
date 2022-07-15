@@ -3,9 +3,11 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 export const TelaHome = styled.div`
+    width: 100vw;
     display: flex;
     flex-direction:column ;
     align-items: center;
+    margin-top: 80px;
 `
 
 
@@ -23,11 +25,10 @@ export const HomePage = () => {
         <TelaHome>
 
             <h1>Labex</h1>
-
-                <button onClick={goToListTripsPage}>Ver Viagens</button>
-                <br />
-                <button onClick={goToLoginPage}>Área Administrativa</button>
- 
+            <div>
+            <button onClick={goToListTripsPage}>Ver Viagens</button>
+            <button onClick={goToLoginPage}>Área Administrativa</button>
+            </div>
 
         </TelaHome>
     )
