@@ -18,9 +18,10 @@ export const TelaLogin = styled.div`
 `
 
 export const LoginPage = () => {
-    const navigate = useNavigate()
     const [email, setEmail] = useState("");
-    const [senha, setSenha] = useState("");
+    const [password, setPassword] = useState("");
+
+    const navigate = useNavigate()
 
     const goToHomePage = () => {
         navigate("/")
@@ -33,28 +34,27 @@ export const LoginPage = () => {
     const onChangeEmail = (event) => {
         setEmail(event.target.value);
     };
-    const onChangeSenha = (event) => {
-        setSenha(event.target.value);
+    const onChangePassword = (event) => {
+        setPassword(event.target.value);
     }
 
     const onSubmitLogin = () => {
-        console.log(email, senha);
+        console.log(email, password);
+
         const body = {
             email: email,
-            password: senha
-        };
-
+            password:password
+        }
         axios
             .post(
-                "https://us-central1-labenu-apis.cloudfunctions.net/labeX/mariluci-lima-Freire/login"
+                'https://us-central1-labenu-apis.cloudfunctions.net/labeX/mariluci-lima-Freire/login',body
             )
             .then((response) => {
-                console.log("deu certo: ", response.data);
-                // localStorage.setItem("token", response.data.token);
-                // history.push("/")
+                console.log("deu certo", response.data);
             })
             .catch((error) => {
                 console.log("deu errado ", error.response)
+                alert(error);
             })
     };
 
@@ -70,14 +70,15 @@ export const LoginPage = () => {
             />
             <input
                 placeholder="Senha"
-                type="senha"
-                value={senha}
-                onChange={onChangeSenha}
-                />
+                type="password"
+                value={password}
+                onChange={onChangePassword}
+            />
 
             <button onClick={goToHomePage}>Voltar</button>
             <br />
-            <button onClick={goToAdminHomePage}>Entrar</button>
+            <button onClick={onSubmitLogin}>Fazer Login</button>
+            {/* <button onClick={goToAdminHomePage}>Fazer Login</button> */}
         </TelaLogin>
     )
 }
