@@ -1,25 +1,13 @@
 import axios from "axios";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
+import { TelaLogin } from "./styled";
 
-export const TelaLogin = styled.div`
-    width: 100vw;
-    display: flex;
-    flex-direction:column ;
-    align-items: center;
-    padding: 0 20px 20px 20px;
-    margin-top: 20px;
-
-    input {
-        width: 300px;
-        margin-bottom: 12px;
-    }
-`
 
 export const LoginPage = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    /* const [email, setEmail] = useState("");
+    const [password, setPassword] = useState(""); */
+    const [form, setForm] = useState({email: "", password:""})
 
     const navigate = useNavigate()
 
@@ -27,30 +15,33 @@ export const LoginPage = () => {
         navigate("/")
     }
 
-    const goToAdminHomePage = () => {
+    /* const goToAdminHomePage = () => {
         navigate("/admin/trips/list")
-    }
+    } */
 
     const onChangeEmail = (event) => {
-        setEmail(event.target.value);
+        setForm({...form, email: event.target.value});
     };
     const onChangePassword = (event) => {
-        setPassword(event.target.value);
+        setForm({...form, password: event.target.value});
     }
 
-    const onSubmitLogin = () => {
-        console.log(email, password);
+    const goToAdminHomePage = (event) => {
+        navigate("/admin/trips/list")
+        console.log(form);
+        event.preventDefault()
 
-        const body = {
+        /* const body = {
             email: email,
             password:password
-        }
+        } */
         axios
             .post(
-                'https://us-central1-labenu-apis.cloudfunctions.net/labeX/mariluci-lima-Freire/login',body
+                "https://us-central1-labenu-apis.cloudfunctions.net/labeX/mariluci-lima-Freire/login",form
             )
             .then((response) => {
-                console.log("deu certo", response.data);
+                console.log("deu certo", response.data.token);
+                localStorage.setItem('token',response.data.token)
             })
             .catch((error) => {
                 console.log("deu errado ", error.response)
@@ -62,23 +53,26 @@ export const LoginPage = () => {
         <TelaLogin>
 
             <h1>Login</h1>
+           <form onSubmit={goToAdminHomePage}>
             <input
-                placeholder="E-mail"
-                type="email"
-                value={email}
+                placeholder={"E-mail"}
+                value={form.email}
+                required
                 onChange={onChangeEmail}
             />
             <input
-                placeholder="Senha"
+                placeholder={"Senha"}
                 type="password"
-                value={password}
+                value={form.password}
+                required
                 onChange={onChangePassword}
             />
-
-            <button onClick={goToHomePage}>Voltar</button>
             <br />
-            <button onClick={onSubmitLogin}>Fazer Login</button>
-            {/* <button onClick={goToAdminHomePage}>Fazer Login</button> */}
+            {/* <button>Fazer Login</button> */}
+            <button>{goToAdminHomePage}Fazer Login</button>
+            </form>
+            <button onClick={goToHomePage}>Voltar</button>
+       
         </TelaLogin>
     )
 }

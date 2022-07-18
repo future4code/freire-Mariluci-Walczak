@@ -4,10 +4,13 @@ import { useNavigate } from "react-router-dom";
 import { TelaLista } from "./styled";
 
 export const ListTripsPage = (props) => {
+    
     const [trips, setTrips] = useState([])
+
     useEffect(() => {
         buscaViagens(props.listaViagensId)
     }, [props.listaViagensId])
+    
     const navigate = useNavigate()
 
     const goToApplicationFormPage = () => {

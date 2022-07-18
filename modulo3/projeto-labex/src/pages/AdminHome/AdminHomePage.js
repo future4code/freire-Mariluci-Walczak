@@ -1,17 +1,16 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
+import { useState, useEffect } from "react";
+import axios from "axios"
+import { TelaLista } from "./styled";
 
+export const AdminHomePage = (props) => {
 
-export const TelaAdminHome = styled.div`
-    display: flex;
-    flex-direction:column ;
-    align-items: center;
-    padding: 0 20px 20px 20px;
-    margin: 20px;
+    const [trips, setTrips] = useState([])
+    useEffect(() => {
+        buscaViagens(props.listaViagensId)
+    }, [props.listaViagensId])
 
-    `
-export const AdminHomePage = () => {
     const navigate = useNavigate()
 
     const goToHomePage = () => {
@@ -26,16 +25,34 @@ export const AdminHomePage = () => {
         navigate("/login")
     }
 
+    const buscaViagens = () => {
+        axios
+            .get(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/mariluci-lima-Freire/trips`)
+            .then((res) => {
+                setTrips(res.data.trips)
+            })
+            .catch((error) => {
+                alert(error);
+            });
+    }
+
     return (
-        <TelaAdminHome>
+        <TelaLista>
 
             <h1>Painel Administrativo</h1>
 
             <button onClick={goToHomePage}>Voltar</button>
-            <br/>
             <button onClick={goToCreateTripPage}>Criar Viagem</button>
-            <br/>
             <button onClick={goToLoginPage}>Logout</button>
-        </TelaAdminHome>
+
+            {trips.map(trip => {
+                return (
+                    <figure>
+                        <p><b>{trip.name}</b></p>
+                    </figure>
+                )
+            })}
+
+        </TelaLista>
     )
 }
