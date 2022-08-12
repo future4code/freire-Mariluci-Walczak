@@ -4,7 +4,8 @@
 
 //b)
 //let meuNumero: number = 1
-let meuNumero : number | string // declarando uma variável tipo Union
+let meuNumero : number | string  = 23// declarando uma variável tipo Union
+meuNumero = "23"
 
 //c)
 type Pessoa = {
@@ -13,19 +14,19 @@ type Pessoa = {
     corFavorita: string
 }
 
-const mr: Pessoa = {
+const pessoa1: Pessoa = {
     nome: "Mariluci",
     idade: 10,
     corFavorita: "verde"
 }
 
-const malu: Pessoa = {
+const pessoa2: Pessoa = {
     nome: "Karol",
     idade: 18,
     corFavorita: "azul"
 }
 
-const hj: Pessoa = {
+const pesso3: Pessoa = {
     nome: "Bento",
     idade: 20,
     corFavorita: "pink"
