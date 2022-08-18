@@ -1,0 +1,15 @@
+{
+  "name": "lista-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "ex01": "tsc && node ./build/exercicio1.js"
+  },
+  "keywords": [],
+  "author": "Mariluci",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.7.4"
+  }
+}
