@@ -9,7 +9,6 @@ app.use(express.json())
 app.use(cors())
 
 
-// Cadastro de Clientes
 app.post("/clients", (req, res) => {
   try {
 
@@ -39,7 +38,7 @@ app.post("/clients", (req, res) => {
 
       const clientIndex = clients.findIndex(client => client.cpf === cpf)
 
-      // Verifica se o CPF já está cadastrado, se for um valor acima de -1, então já existe um cliente com o mesmo CPF
+    
       if (clientIndex >= 0) {
           res.statusCode = 409
           throw new Error("Esse CPF já foi cadastrado!")
@@ -84,7 +83,6 @@ app.get("/clients", (req, res) => {
   }
 })
 
-// Consulta de saldo de um Cliente
 app.get("/clients/:cpf", (req, res) => {
   try {
 
@@ -105,7 +103,7 @@ app.get("/clients/:cpf", (req, res) => {
   }
 })
 
-// Pagamento de um Cliente
+
 app.post("/clients/:cpf/payment", (req, res) => {
   try {
 
@@ -127,9 +125,6 @@ app.post("/clients/:cpf/payment", (req, res) => {
 
       const clientIndex = clients.findIndex(client => client.cpf === cpf)
       
-      // Verifica se o CPF já está cadastrado, se for um valor abaixo de 0, 
-      //então não existe um cliente com o mesmo CPF, no caso sempre vai retornar 
-      //-1 se não existir na lista.
       if (clientIndex < 0) {
           res.statusCode = 404
           throw new Error("Cliente não encontrado")
@@ -137,18 +132,12 @@ app.post("/clients/:cpf/payment", (req, res) => {
 
       const client = clients[clientIndex]
 
-      
       const newTransaction: transaction = {
           value,
           date: dateFormatted,
           description
       }
 
-      // O método Math.abs() retorna o valor absoluto de um número, ou seja, o valor sem sinal negativo.
-      // Ao se passar um número negativo, o método retorna o valor positivo. 
-      //Mas se passarmos um número positivo, o método retorna o mesmo número. Por exemplo, 
-      //o método Math.abs(-10) retorna 10. O método Math.abs(10) retorna 10. Poderiamos ter usado value
-      // * -1, mas o método Math.abs() é mais eficiente.
       if (Math.abs(value) > client.balance) {
           res.statusCode = 406
           throw new Error("Saldo insuficiente")
@@ -167,7 +156,6 @@ app.post("/clients/:cpf/payment", (req, res) => {
   }
 })
 
-// Deposito de um Cliente
 app.put("/clients/:cpf/:name/deposit", (req, res) => {
   try {
 
@@ -185,8 +173,6 @@ app.put("/clients/:cpf/:name/deposit", (req, res) => {
 
       const clientIndex = clients.findIndex(client => client.cpf === cpf && client.name.toLowerCase() === name.toLowerCase())
 
-      // Verifica se o CPF e o name já está cadastrado, se for um valor abaixo de 0, então não existe um 
-      //cliente com o mesmo CPF, no caso sempre vai retornar -1 se não existir na lista.
       if (clientIndex < 0) {
           res.statusCode = 404
           throw new Error("Não foi possível atualização, cliente não existe !")
@@ -208,7 +194,6 @@ app.put("/clients/:cpf/:name/deposit", (req, res) => {
   }
 })
 
-// Atualização do saldo de um Cliente
 app.put("/clients/:cpf/:name/balance", (req, res) => {
   try {
 
@@ -216,9 +201,6 @@ app.put("/clients/:cpf/:name/balance", (req, res) => {
 
       const clientIndex = clients.findIndex(client => client.cpf === cpf && client.name.toLowerCase() === name.toLowerCase())
 
-      // Verifica se o CPF e o name já está cadastrado, se for um valor abaixo de 0, 
-      //então não existe um cliente com o mesmo CPF, no caso sempre vai retornar -1 
-      //se não existir na lista.
       if (clientIndex < 0) {
           res.statusCode = 404
           throw new Error("Não foi possível atualização, cliente não existe !")
@@ -228,8 +210,7 @@ app.put("/clients/:cpf/:name/balance", (req, res) => {
 
       clients[clientIndex].statement.forEach(balance => {
           newBalance += balance.value
-      }
-      )
+      })
 
       clients[clientIndex].balance = newBalance
 
@@ -243,7 +224,6 @@ app.put("/clients/:cpf/:name/balance", (req, res) => {
   }
 })
 
-// Transação de um Cliente
 app.post("/clients/:cpf/:name/transfer", (req, res) => {
   try {
 
@@ -279,7 +259,6 @@ app.post("/clients/:cpf/:name/transfer", (req, res) => {
 
       const clientDestinationIndex = clients.findIndex(client => client.cpf === cpfDestination)
 
-      // Verifica se o CPF, se for um valor abaixo de 0, então não existe um cliente com o mesmo CPF, no caso sempre vai retornar -1 se não existir na lista.
       if (clientDestinationIndex < 0) {
           res.statusCode = 404
           throw new Error("Não foi possível fazer a transferência, cliente não cadastrado")
@@ -311,13 +290,6 @@ app.post("/clients/:cpf/:name/transfer", (req, res) => {
       }
   }
 })
-
-
-
-
-
-
-
 
 
 
