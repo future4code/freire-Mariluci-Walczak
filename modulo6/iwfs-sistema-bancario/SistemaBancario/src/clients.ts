@@ -16,5 +16,13 @@ export const clients: client[] = [
         birthDate: new Date("2004-03-19"),
         balance: 2700,
         statement: []
+    },
+    {
+        id: 3,
+        name: "Camila",
+        cpf:  ("999.999.999-03"),
+        birthDate: new Date("1995-12-29"),
+        balance: 2700,
+        statement: []
     }
 ]
