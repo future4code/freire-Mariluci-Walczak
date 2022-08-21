@@ -5,9 +5,10 @@ export type transaction = {
 }
 
 export type client = {
+    id: number;
     name: string;
     cpf: string;
-    date: Date;
+    birthDate: Date;
     balance: number;
     statement: transaction[];
 }
