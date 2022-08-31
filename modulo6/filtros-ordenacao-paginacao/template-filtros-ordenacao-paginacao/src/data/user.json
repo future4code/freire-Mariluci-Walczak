@@ -1,0 +1,26 @@
+[
+    {
+        "id":"1",
+        "name": "Soter",
+        "email": "soter@labenu",
+        "type": "Teacher"
+    },
+    {
+        "id":"2",
+        "name": "Joao",
+        "email": "joao@labenu",
+        "type": "Teacher"
+    },
+    {
+        "id":"3",
+        "name": "Paula",
+        "email": "paula@labenu",
+        "type": "Teacher"
+    },
+    {
+        "id":"4",
+        "name": "Amanda",
+        "email": "amanda@labenu",
+        "type": "Teacher"
+    }
+]
