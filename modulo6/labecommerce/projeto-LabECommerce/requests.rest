@@ -1,0 +1,12 @@
+POST http://localhost:3003/user
+
+###
+post https://exer-serv-backend.herokuapp.com/user/05424150
+
+###
+GET https://exer-serv-backend.herokuapp.com/list
+###
+post http://localhost:3003/user/05424150
+
+###
+GET http://localhost:3003/list
