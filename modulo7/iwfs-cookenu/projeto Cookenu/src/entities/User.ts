@@ -1,7 +1,7 @@
-export enum USER_ROLES {
+/* export enum USER_ROLES {
     NORMAL = "NORMAL",
     ADMIN = "ADMIN"
-}
+} */
 
 export class User {
     constructor(
@@ -9,10 +9,9 @@ export class User {
         private name:string, 
         private email:string,
         private password: string,
-        private role: USER_ROLES
         ) {}
 
         static toUserModel(data: any): User{
-            return new User(data.id, data.name, data.email, data.password, data.role)
+            return new User(data.id, data.name, data.email, data.password)
         }
 }
